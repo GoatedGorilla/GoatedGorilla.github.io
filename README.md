@@ -1,2 +1,0 @@
-# GoatedGorilla.github.io
-#skibididididifs'
