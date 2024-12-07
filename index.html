@@ -3,7 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Protected</title>
+    <title>Login to Goated Gorilla Games</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #444;
+        }
+        input {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Login to Goated Gorilla Games</h1>
+    <p>Please enter the password to proceed:</p>
+    <input type="password" id="password" placeholder="Enter password">
+    <button onclick="verifyPassword()">Submit</button>
+    <noscript>
+        <p style="color: red;">JavaScript is required for this feature to work.</p>
+    </noscript>
     <script>
         async function verifyPassword() {
             const enteredPassword = document.getElementById("password").value;
@@ -11,18 +51,12 @@
             const correctPassword = await response.text();
 
             if (enteredPassword === correctPassword.trim()) {
-                // Save login status in sessionStorage
                 sessionStorage.setItem("loggedIn", true);
-                window.location.href = "login.html"; // Redirect to the main page
+                window.location.href = "index.html";
             } else {
                 alert("Incorrect password. Please try again.");
             }
         }
     </script>
-</head>
-<body>
-    <h1>Enter Password to Access</h1>
-    <input type="password" id="password" placeholder="Enter password" required>
-    <button onclick="verifyPassword()">Submit</button>
 </body>
 </html>
