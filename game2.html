@@ -1,9 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geometry Dash</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <link rel="apple-touch-icon" href="logo.png">
+    <link rel="icon" href="logo.png">
+
+    <title>WebGL Fluid Simulation</title>
+    <meta name="description" content="A WebGL fluid simulation that works in mobile browsers.">
+
     <style>
         /* Light Mode Styles */
         :root {
@@ -24,34 +34,35 @@
         }
 
         body {
+            font-family: Arial, sans-serif;
+            margin: 0;
             background-color: var(--background-color);
             color: var(--text-color);
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px;
+            overflow: hidden;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        h1 {
-            margin-bottom: 20px;
+        canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
         }
 
-        iframe {
-            border: none;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
+        .theme-switch {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 10;
         }
 
         button {
-            display: inline-block;
-            margin: 10px;
-            padding: 15px 30px;
-            font-size: 16px;
-            cursor: pointer;
             background-color: var(--button-bg);
             color: var(--button-text);
             border: none;
+            padding: 10px 20px;
+            font-size: 16px;
             border-radius: 5px;
+            cursor: pointer;
             transition: background-color 0.3s ease;
         }
 
@@ -59,32 +70,24 @@
             background-color: var(--button-hover-bg);
         }
 
-        .theme-switch {
-            margin-top: 20px;
+        .theme-switch button {
+            font-size: 14px;
+            padding: 8px 16px;
         }
     </style>
 </head>
 <body>
-    <h1>Geometry Dash</h1>
-    <iframe 
-        src="https://scratch.mit.edu/projects/105500895/embed" 
-        width="485" 
-        height="402" 
-        allowfullscreen>
-    </iframe>
-    <br>
-    <button onclick="location.href='login.html'">Back to Home</button>
     <div class="theme-switch">
         <button id="theme-toggle">Switch to Dark Mode</button>
     </div>
+    <canvas id="fluid-simulation"></canvas>
 
     <script>
-        // Handle Theme Switching
-        const themeToggle = document.getElementById("theme-toggle");
-        const rootElement = document.documentElement;
-
         // Load saved theme from localStorage
+        const rootElement = document.documentElement;
+        const themeToggle = document.getElementById("theme-toggle");
         const savedTheme = localStorage.getItem("theme");
+
         if (savedTheme) {
             rootElement.setAttribute("data-theme", savedTheme);
             themeToggle.textContent =
@@ -100,10 +103,16 @@
                 newTheme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode";
         });
 
-        // Ensure session-based login
+        // Check if the user is logged in
         if (!sessionStorage.getItem("loggedIn")) {
             window.location.href = "login.html";
         }
+
+        // Your fluid simulation script initialization (replace with your actual script)
+        const script = document.createElement("script");
+        script.src = "./script.js";
+        script.async = true;
+        document.body.appendChild(script);
     </script>
 </body>
 </html>
