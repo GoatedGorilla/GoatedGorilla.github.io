@@ -3,24 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Protected</title>
-    <script>
-        async function verifyPassword() {
-            const enteredPassword = document.getElementById("password").value;
-            const response = await fetch("https://raw.githubusercontent.com/GoatedGorilla/password/refs/heads/main/pasword");
-            const correctPassword = await response.text();
-            
-            if (enteredPassword === correctPassword.trim()) {
-                window.location.href = "index.html"; // Redirect to your main website
-            } else {
-                alert("Incorrect password. Please try again.");
-            }
+    <title>Goated Gorilla Games</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
         }
-    </script>
+        button {
+            display: inline-block;
+            margin: 10px;
+            padding: 15px 30px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h1>Enter Password to Access</h1>
-    <input type="password" id="password" placeholder="Enter password" required>
-    <button onclick="verifyPassword()">Submit</button>
+    <h1>Welcome to Goated Gorilla Games</h1>
+    <p>Click a button below to play a game:</p>
+    <button onclick="location.href='game1.html'">Geometry Dash</button>
+    <button onclick="location.href='game2.html'">Game 2</button>
+    <button onclick="location.href='game3.html'">Game 3</button>
 </body>
 </html>
