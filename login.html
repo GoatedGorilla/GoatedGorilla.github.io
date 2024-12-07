@@ -9,6 +9,13 @@
             font-family: Arial, sans-serif;
             text-align: center;
             padding: 50px;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #666;
         }
         button {
             display: inline-block;
@@ -20,17 +27,23 @@
             color: white;
             border: none;
             border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
         button:hover {
             background-color: #0056b3;
         }
     </style>
-    <script>
-        // Redirect to login.html if not logged in
-        if (!sessionStorage.getItem("loggedIn")) {
-            window.location.href = "index.html";
-        }
-    </script>
+    <noscript>
+        <style>
+            body::before {
+                content: "JavaScript is required for this website to work.";
+                display: block;
+                color: red;
+                font-weight: bold;
+                margin-bottom: 20px;
+            }
+        </style>
+    </noscript>
 </head>
 <body>
     <h1>Welcome to Goated Gorilla Games</h1>
